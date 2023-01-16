@@ -1,16 +1,27 @@
 <div class="container">
   <div>
-    <app-tooltip tip="My tooltip on <em>top</em>">
-      <span>Tooltip top</span>
+    <app-tooltip>
+      <span tooltip-trigger>Tooltip top</span>
+      <ng-container tooltip-content>Precisa de ajuda? Clique <button (click)="toggleModal()">aqui</button></ng-container>
     </app-tooltip>
-    <app-tooltip tip="My tooltip on <strong>left</strong>" direction="left">
-      <span>Tooltip left</span>
+    <app-tooltip direction="left">
+      <span tooltip-trigger>Tooltip left</span>
+      <span tooltip-content>My tooltip on <strong>left</strong></span>
     </app-tooltip>
-    <app-tooltip tip="My tooltip on <a target='__blank' href='https://github.com/kauelima21/venus'>bottom</a>" direction="bottom">
-      <span>Tooltip bottom</span>
+    <app-tooltip direction="bottom">
+      <span tooltip-trigger>Tooltip bottom</span>
+      <span tooltip-content>My tooltip on <a target='__blank' href='https://github.com/kauelima21/venus'>bottom</a></span>
     </app-tooltip>
-    <app-tooltip tip="My tooltip on <u>right</u>" direction="right">
-      <span>Tooltip right</span>
+    <app-tooltip direction="right">
+      <span tooltip-trigger>Tooltip right</span>
+      <span tooltip-content>My tooltip on <u>right</u></span>
     </app-tooltip>
+  </div>
+</div>
+
+<div class="modal-container" *ngIf="show">
+  <div class="modal-content">
+    por que voce me clicou? >:(
+    <button (click)="toggleModal()">fechar</button>
   </div>
 </div>
