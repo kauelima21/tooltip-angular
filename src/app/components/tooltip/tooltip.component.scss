@@ -1,134 +1,163 @@
-.tooltip {
+.tooltip,
+.tooltip-top,
+.tooltip-right,
+.tooltip-left,
+.tooltip-bottom {
   position: relative;
+}
+
+.tooltip-top,
+.tooltip-left,
+.tooltip-right,
+.tooltip-bottom {
   cursor: pointer;
   // estilo do botao do tooltip
   display: flex;
   border-radius: 5px;
   padding: 1rem 1.5rem;
   background-color: #707070;
-  color: #E1E1E6;
+  color: #e1e1e6;
 }
 
-.tooltip::before, .tooltip::after {
+.tooltip-content,
+.tooltip-content::after {
   --scale: 0;
   --arrow-size: 8px;
   --tooltip-color: #484440;
 
   position: absolute;
-  transform:
-    translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transform: translateX(var(--translate-x, 0)) translateY(var(--translate-y, 0))
+    scale(var(--scale));
   transition: 150ms transform;
   z-index: 2;
 }
 
-.tooltip::before {
-  content: attr(data-tooltip);
+.tooltip-content {
   color: white;
-  padding: .5rem;
-  border-radius: .3rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
   text-align: center;
   width: max-content;
   max-width: 250px;
   background: var(--tooltip-color);
+  font-size: 14px;
 }
 
-.tooltip::after {
-  content: '';
+.tooltip-content::after {
+  content: "";
   border: var(--arrow-size) solid transparent;
 }
 
 /* TOP */
 
-.tooltip-top::before, .tooltip-top::after {
-  top: -.25rem;
+.tooltip-content-top,
+.tooltip-content-top::after {
   left: 50%;
   transform-origin: bottom center;
 }
 
-.tooltip-top::before {
-  --translate-y: calc(-100% - var(--arrow-size));
+.tooltip-content-top {
+  top: -0.25rem;
+  --translate-y: calc(-100% - (var(--arrow-size)));
   --translate-x: -50%;
 }
 
-.tooltip-top:hover::before, .tooltip-top:hover::after {
+.tooltip-top:hover ~ .tooltip-content-top,
+.tooltip-content-top:hover,
+.tooltip-content-top::after {
   --scale: 1;
 }
 
-.tooltip-top::after {
+.tooltip-content-top::after {
   --translate-y: calc(-1 * var(--arrow-size));
 
+  top: calc(100% + (var(--arrow-size) / 2));
   border-top-color: var(--tooltip-color);
   transform-origin: top center;
 }
 
 /* RIGHT */
 
-.tooltip-right::before, .tooltip-right::after {
+.tooltip-content-right,
+.tooltip-content-right::after {
   top: 50%;
-  left: 100%;
   transform-origin: left center;
 }
 
-.tooltip-right::before {
+.tooltip-content-right {
+  left: 100%;
   --translate-y: -50%;
-  --translate-x: calc(var(--arrow-size) * 2);
+  --translate-x: calc(var(--arrow-size) * 1.5);
 }
 
-.tooltip-right:hover::before, .tooltip-right:hover::after {
+.tooltip-right:hover ~ .tooltip-content-right,
+.tooltip-content-right:hover,
+.tooltip-content-right::after {
   --scale: 1;
 }
 
-.tooltip-right::after {
+.tooltip-content-right::after {
   --translate-y: calc(-1 * var(--arrow-size));
+  --translate-x: calc(-1.5 * var(--arrow-size));
 
+  left: 0;
   border-right-color: var(--tooltip-color);
   transform-origin: right center;
 }
 
 /* BOTTOM */
 
-.tooltip-bottom::before, .tooltip-bottom::after {
-  bottom: 0;
+.tooltip-content-bottom,
+.tooltip-content-bottom::after {
   left: 50%;
   transform-origin: top center;
 }
 
-.tooltip-bottom::before {
-  --translate-y: calc(100% + (var(--arrow-size) * 2));
+.tooltip-content-bottom {
+  bottom: -0.25rem;
+  --translate-y: calc(100% + (var(--arrow-size)));
   --translate-x: -50%;
 }
 
-.tooltip-bottom:hover::before, .tooltip-bottom:hover::after {
+.tooltip-bottom:hover ~ .tooltip-content-bottom,
+.tooltip-content-bottom:hover,
+.tooltip-content-bottom::after {
   --scale: 1;
 }
 
-.tooltip-bottom::after {
-  --translate-y: calc(var(--arrow-size) * 2);
+.tooltip-content-bottom::after {
+  --translate-y: var(--arrow-size);
 
+  bottom: calc(100% + (var(--arrow-size) / 2));
   border-bottom-color: var(--tooltip-color);
-  transform-origin: bottom center;
+  transform-origin: top center;
 }
 
 /* LEFT */
 
-.tooltip-left::before, .tooltip-left::after {
+.tooltip-content-left,
+.tooltip-content-left::after {
   top: 50%;
-  right: 100%;
   transform-origin: right center;
 }
 
-.tooltip-left::before {
+.tooltip-content-left {
+  right: 100%;
   --translate-y: -50%;
-  --translate-x: calc(var(--arrow-size) * -2);
+  --translate-x: calc(var(--arrow-size) * -1.5);
 }
 
-.tooltip-left:hover::before, .tooltip-left:hover::after {
+.tooltip-left:hover ~ .tooltip-content-left,
+.tooltip-content-left:hover,
+.tooltip-content-left::after {
   --scale: 1;
 }
 
-.tooltip-left::after {
+.tooltip-content-left::after {
   --translate-y: calc(-1 * var(--arrow-size));
+  --translate-x: calc(1.5 * var(--arrow-size));
 
+  right: 0;
   border-left-color: var(--tooltip-color);
   transform-origin: left center;
 }

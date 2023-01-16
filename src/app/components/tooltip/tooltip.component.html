@@ -1,3 +1,8 @@
-<div class="tooltip tooltip-{{direction}}" [attr.data-tooltip]="tip" [attr.data-direction]="direction">
-  <ng-content></ng-content>
+<div class="tooltip">
+  <div class="tooltip-{{direction}}" [attr.data-direction]="direction">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="tooltip-content tooltip-content-{{direction}}" [innerHTML]="tip">
+  </div>
 </div>
