@@ -1,22 +1,54 @@
 <div class="container">
   <div>
-    <app-tooltip>
-      <span tooltip-trigger>Tooltip top</span>
-      <ng-container tooltip-content>Precisa de ajuda? Clique <button (click)="toggleModal()">aqui</button></ng-container>
-    </app-tooltip>
-    <app-tooltip direction="left">
-      <span tooltip-trigger>Tooltip left</span>
-      <span tooltip-content>My tooltip on <strong>left</strong></span>
-    </app-tooltip>
-    <app-tooltip direction="bottom">
-      <span tooltip-trigger>Tooltip bottom</span>
-      <span tooltip-content>My tooltip on <a target='__blank' href='https://github.com/kauelima21/venus'>bottom</a></span>
-    </app-tooltip>
-    <app-tooltip direction="right">
-      <span tooltip-trigger>Tooltip right</span>
-      <span tooltip-content>My tooltip on <u>right</u></span>
-    </app-tooltip>
+    <tooltip-provider direction="top">
+      <tooltip-trigger trigger>
+        <span>Tooltip top</span>
+      </tooltip-trigger>
+      <tooltip-content content>
+        <ng-container>Precisa de ajuda? Clique
+          <button (click)="toggleModal()">aqui</button>
+        </ng-container>
+      </tooltip-content>
+    </tooltip-provider>
+
+    <tooltip-provider direction="left">
+      <tooltip-trigger trigger>
+        <span>Tooltip left</span>
+      </tooltip-trigger>
+      <tooltip-content content>
+        <ng-container>
+          My tooltip on <strong>left</strong>
+        </ng-container>
+      </tooltip-content>
+    </tooltip-provider>
+
+    <tooltip-provider direction="right">
+      <tooltip-trigger trigger>
+        <span>Tooltip right</span>
+      </tooltip-trigger>
+      <tooltip-content content>
+        <ng-container>
+          My tooltip on <u>right</u>
+        </ng-container>
+      </tooltip-content>
+    </tooltip-provider>
+
+    <tooltip-provider direction="bottom">
+      <tooltip-trigger trigger>
+        <span>Tooltip bottom</span>
+      </tooltip-trigger>
+      <tooltip-content content>
+        <ng-container>
+          My tooltip on
+        <a target="__blank" href="https://github.com/kauelima21/venus"
+          >bottom</a
+        >
+        </ng-container>
+      </tooltip-content>
+    </tooltip-provider>
   </div>
+
+  <app-teste />
 </div>
 
 <div class="modal-container" *ngIf="show">

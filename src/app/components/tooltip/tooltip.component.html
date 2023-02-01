@@ -1,9 +1,9 @@
 <div class="tooltip">
   <div class="tooltip-{{direction}}" [attr.data-direction]="direction">
-    <ng-content select="[tooltip-trigger]"></ng-content>
+    <ng-content select="[trigger]" />
   </div>
 
   <div class="tooltip-content tooltip-content-{{direction}}">
-    <ng-content select="[tooltip-content]"></ng-content>
+    <ng-content select="[content]" />
   </div>
 </div>
