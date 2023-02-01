@@ -11,12 +11,13 @@
 .tooltip-right,
 .tooltip-bottom {
   cursor: pointer;
-  // estilo do botao do tooltip
+  // inicio do estilo do botao do tooltip
   display: flex;
   border-radius: 5px;
   padding: 1rem 1.5rem;
   background-color: #707070;
   color: #e1e1e6;
+  // final do estilo do botao do tooltip
 }
 
 .tooltip-content,
